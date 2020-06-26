@@ -1,0 +1,194 @@
+img :focus{
+    outline: none;
+}
+
+body {
+    position:relative;
+    background-color: darkgrey;
+    overflow-x:hidden;
+}
+.button{
+    box-sizing: border-box;
+    height:70%;
+    width:30%;
+    float:left;
+    border-radius:5px;
+    margin-right: 10%;
+    margin-left: 10%;
+    border: .5px solid darkgrey;
+    /*    box-shadow: -3px 3px 3px darkgrey;*/
+}
+.button:hover{
+
+    box-shadow: 0px 0px 5px 5px darkgrey;
+}
+.button_cont{
+    height:10%;
+}
+
+/*           CONTAINER DIV - SMALLER VERSION OF BODY*/
+.cont_div{
+    background-color:white;
+    border: .5px solid darkgrey;
+    box-sizing:border-box;
+    overflow: hidden;
+    margin: 1% 10% 5% 10%;
+    box-shadow: 1px 1px 1px 1px #4D4D4D;
+}
+/*          DESCRIPTION TEXT - TEXT THAT EXPLAINS PURPOSE OF DOCUMENT*/
+.desc_box {
+    background-color:white;
+    text-justify: inter-character;
+    height: 50%;
+    font-size:15px;
+    overflow-y: scroll;
+}
+.desc_txt{
+    padding-top: 15vh;
+}
+
+/*          DESKTOP VIEWER - SPAN CONTAINING THUMBNAIL IMAGE OF AD ON DESKTOP DEVICE*/
+.desk_viewer{
+    /*                background-color: lightgreen;*/
+    height: 90%;
+    text-align: center;
+}
+
+/*          FIFTER PERCENT - SETTING FOR EACH MAJOR SPAN*/
+.fifty_per{
+    width: 40%;
+    box-sizing:border-box;
+    margin: 2% 5% 0 5%;
+    padding: 15px 15px 0px 15px;
+    /*                overflow:hidden;*/
+}
+
+/*           HUNDERED PERCENT - SIZE SETTINGS FOR DIV CIONTAINING BUTTONS*/
+.hund_per{
+    width: 90%;
+    height: 20%;
+    margin: 5% 5% 5% 5%;
+}
+
+.header{
+    position:fixed;
+    top: 7vh;
+    left:3vw;
+
+    box-sizing: border-box;
+    height:calc();
+    width:30vw;
+    padding:10px 15px 10px 15px;
+    white-space: initial;
+    vertical-align: middle;
+    text-justify: inter-character;
+
+    font-size: 25px;
+    font-family: 'Unica One', sans-serif;
+    font-weight:bold;
+    line-height: 25px;
+
+    background-color: #75BC1E; 
+    /*                #75BC1E;*/
+    color:white;
+    border-radius: 5px;
+    box-shadow: -1px 2px 5px #4D4D4D;
+}
+/*          INLINE BLOCK DISPLAY - SETTINGS FOR ELEMENTS WITH INLINE BLOCK TREATMENT*/
+.in-block-dis{
+    display: inline-block;
+    float:left
+}
+
+/*          MOBILE VIEWER - ELEMENT CONATINING THUMBNAIL IMAGE OF AD ON MOBILE DEVICE*/
+.mob_viewer{
+    /*                background-color: lightpink;*/
+    height: 90%;
+
+    text-align: center;
+}
+
+/*          ORIGINAL IMAGE - SETTING FOR ORIGINAL AD IMG*/
+.org_img{
+    /*                background-color:aqua;*/
+    height: 50%;
+}
+
+/*          THUMBNAIL - SETTING FOR THUMBNAIL IMAGES*/
+.thumb{
+    width:100%;
+    text-align: center;
+    vertical-align: middle;
+    border:.5px solid darkgray;
+    /*                on hover bolde and black border*/
+}
+.thumb:hover{
+    /*                border:2px solid darkgray;*/
+    box-shadow: 0px 0px 5px 5px darkgrey;
+}
+
+/*          TITLE TEXT - SETTINGS FOR TITLE LABELS ON DOCUMENTS*/
+.title_txt{
+    width:100%;
+    line-height: 50px;
+    font-size: 25px;
+    font-family: 'Unica One', sans-serif;
+    font-weight:bold;
+    /*                SEWT FONT AND FONT SIZE TEXT ALIGN*/
+}
+.title_txt:hover{
+    font-size: 26px;
+}
+/*           
+BUTTON SPAN -  SETTINGS FOR SPAN CONTAINING BUTTONS*/
+.button_span{
+    background-color: lightgrey;
+    height: 10%;
+}
+/*            
+VIEWER DIV - SETTINGH FOR FILE VIEWER DIV*/
+#viewer_div{
+    z-index: 5;
+    position: fixed;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    /*                DO NOT SET HEIGHT*/
+    padding-top:50px;
+
+    background-color: rgb(0, 0, 0, .8);
+    text-align: center;
+
+    display: none;
+    overflow-y:scroll;
+    overflow-x: hidden;
+}
+
+/*          VIEWER FILE - SETTING FOR FILES SHOWN IN FILE VIEWER*/
+.viewer_file{
+    width: 800px;
+    margin: 0 auto;
+
+}
+
+/*          PDF VIEWER SOURCE - SIZE SETTINGS FOR PDF VIEWER*/
+#pdf_view_src{
+    height:600px;
+    /*
+    margin-left:auto;
+    margin-right:auto;
+    */
+    border:none;
+}
+
+#exit_view{
+    height:20px;
+    /*
+    margin-left:auto;
+    margin-right:auto;
+    */
+}
+#exit_view:hover{
+    height:30px;
+}

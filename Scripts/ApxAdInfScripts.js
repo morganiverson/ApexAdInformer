@@ -1,6 +1,17 @@
+//SHOW ORIGINAL IMAGE IN VIEWER
 document.getElementById("org_img_thumb").addEventListener("click", function() {showFile("org_img_thumb")});
+//SHOW MOBILE PDF IN VIEWER
 document.getElementById("mob_pdf_thumb").addEventListener("click", function() {showFile("mob_pdf_thumb")});
-document.getElementById("desk_pdf_thumb").addEventListener("click", function() {showFile("desk_pdf_thumb")});
+document.getElementById("mob_pdf_ttl").addEventListener("click", function() {showFile("mob_pdf_thumb")});
+
+//SHOW DESKTOP PDF IN VIEWER
+//document.getElementById("desk_pdf_thumb").addEventListener("click", function() {showFile("desk_pdf_thumb")});
+//document.getElementById("desk_pdf_ttl").addEventListener("click", function() {showFile("desk_pdf_thumb")});
+document.getElementById("desk_pdf_thumb").style.pointerEvents = "none";
+document.getElementById("desk_pdf_ttl").style.pointerEvents = "none";
+
+
+//CLOSE VIEWER ON CLICK
 document.getElementById("exit_view").addEventListener("click", function() {
     hideViewer();
 });
