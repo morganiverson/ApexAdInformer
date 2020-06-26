@@ -1,0 +1,187 @@
+<html>
+    <head>
+        <style>
+
+            :focus{
+                outline: none;
+            }
+            
+            body {
+                position:relative;
+                background-color: lightgray;
+                overflow-x:hidden;
+            }
+            
+/*           CONTAINER DIV - SMALLER VERSION OF BODY*/
+            .cont_div{
+                background-color:white;
+                box-sizing:border-box;
+                overflow: hidden;
+                margin: 5% 10% 5% 10%;
+            }
+            
+/*          DESCRIPTION TEXT - TEXT THAT EXPLAINS PURPOSE OF DOCUMENT*/
+            .desc_txt {
+                background-color:lightgray;
+                text-justify: inter-character;
+                height: 50%;
+            }
+            
+/*          DESKTOP VIEWER - SPAN CONTAINING THUMBNAIL IMAGE OF AD ON DESKTOP DEVICE*/
+            .desk_viewer{
+                background-color: lightgreen;
+                height: 90%;
+                
+                text-align: center;
+            }
+            
+/*          FIFTER PERCENT - SETTING FOR EACH MAJOR SPAN*/
+            .fifty_per{
+                width: 40%;
+                
+                box-sizing:border-box;
+                margin: 5% 5% 0 5%;
+                padding: 15px;
+                /*                overflow:hidden;*/
+            }
+            
+/*           HUNDERED PERCENT - SIZE SETTINGS FOR DIV CIONTAINING BUTTONS*/
+            .hund_per{
+                width: 90%;
+                height: 20%;
+                margin: 5% 5% 5% 5%;
+            }
+            
+/*          INLINE BLOCK DISPLAY - SETTINGS FOR ELEMENTS WITH INLINE BLOCK TREATMENT*/
+            .in-block-dis{
+                display: inline-block;
+                float:left
+            }
+            
+/*          MOBILE VIEWER - ELEMENT CONATINING THUMBNAIL IMAGE OF AD ON MOBILE DEVICE*/
+            .mob_viewer{
+                background-color: lightpink;
+                height: 90%;
+                
+                text-align: center;
+            }
+            
+/*          ORIGINAL IMAGE - SETTING FOR ORIGINAL AD IMG*/
+            .org_img{
+/*                background-color:aqua;*/
+                height: 50%;
+            }
+            
+            /*          THUMBNAIL - SETTING FOR THUMBNAIL IMAGES*/
+            .thumb{
+                width:100%;
+                text-align: center;
+                vertical-align: middle;
+                border:.5px solid darkgray;
+/*                on hover bolde and black border*/
+            }
+
+/*          TITLE TEXT - SETTINGS FOR TITLE LABELS ON DOCUMENTS*/
+            .title_txt{
+                width:100%;
+                line-height: 50px;
+                /*                SEWT FONT AND FONT SIZE TEXT ALIGN*/
+            }
+/*           
+            BUTTON SPAN -  SETTINGS FOR SPAN CONTAINING BUTTONS*/
+            .button_span{
+                background-color: lightgrey;
+                height: 10%;
+            }
+/*            
+            VIEWER DIV - SETTINGH FOR FILE VIEWER DIV*/
+            #viewer_div{
+                position: fixed;
+                top:0;
+                right:0;
+                left:0;
+                bottom:0;
+/*                DO NOT SET HEIGHT*/
+                padding-top:50px;
+                
+                background-color: rgb(0, 0, 0, .8);
+                text-align: center;
+                
+                display: none;
+                overflow-y:scroll;
+                overflow-x: hidden;
+            }
+
+/*          VIEWER FILE - SETTING FOR FILES SHOWN IN FILE VIEWER*/
+            .viewer_file{
+                width: 800px;
+                margin: 0 auto;
+            }
+            #pdf_view_src{
+                height:600px;
+/*
+                margin-left:auto;
+                margin-right:auto;
+*/
+                border:none;
+            }
+            
+            #exit_view{
+                height:20px;
+/*
+                margin-left:auto;
+                margin-right:auto;
+*/
+            }
+            #exit_view:hover{
+                height:30px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        
+        
+        <div id = "viewer_div">
+            <img id = "exit_view" src = "IMG_Files/x_file_view_.png">  
+            <br><br><br>
+            <img id = "img_view_src" class = "viewer_file">
+            <iframe id = "pdf_view_src" class = "viewer_file"></iframe>
+        </div>
+
+
+        <div class = "cont_div">
+<!--            DESCRIPTION BOX-->
+            <span class = "desc_txt in-block-dis fifty_per">
+                <h2>TITLE</h2>
+                <p class = "desc_txt">
+                    I had the opportunity to work with...
+                </p>
+            </span>
+            
+<!--            ORIGINAL IMG BOX-->
+            <span class = "org_img in-block-dis fifty_per">
+                <img id = "org_img_thumb" class = "thumb" src = "IMG_Files/APEX_AD_2_ORG.jpg">
+            </span> 
+            
+<!--            DESKOP VIEW BOX-->
+            <span class = "desk_viewer in-block-dis fifty_per">
+                <span class = "title_txt">DESKTOP VIEW - COMING SOON</span>
+                <br>
+                <img id = "desk_pdf_thumb" class = "thumb"> 
+            </span>
+            
+<!--            MOBILE VIEW BOX-->
+            <span class = "mob_viewer in-block-dis fifty_per">
+                <span class = "title_txt">MOBILE VIEW</span>
+                <br>
+                <img id = mob_pdf_thumb class = "thumb" src = "IMG_Files/ApxMobView_THUMB.jpg">
+            </span>
+
+<!--            BUTTONS TO INC.COM  APEX.COM AND MY LINKEDIN(?)-->
+            <span class = "button_span in-block-dis hund_per"> buttons - visit inc.com, visit apexenergygroup.com</span>
+        </div>
+
+        <script src = "Scripts/ApxAdInfScripts.js"></script>
+    </body>
+</html>
