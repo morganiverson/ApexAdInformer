@@ -38,28 +38,33 @@ body {
 /*          DESCRIPTION TEXT - TEXT THAT EXPLAINS PURPOSE OF DOCUMENT*/
 .desc_box {
     background-color:white;
+    text-align: justify;
     text-justify: inter-character;
     height: 50%;
     font-size:15px;
     overflow-y: scroll;
 }
 .desc_txt{
-    padding-top: 15vh;
 }
 
 /*          DESKTOP VIEWER - SPAN CONTAINING THUMBNAIL IMAGE OF AD ON DESKTOP DEVICE*/
 .desk_viewer{
     /*                background-color: lightgreen;*/
-    height: 90%;
+    height: 70%;
     text-align: center;
+}
+
+.exit_wrap{
+    height: 30px;
 }
 
 /*          FIFTER PERCENT - SETTING FOR EACH MAJOR SPAN*/
 .fifty_per{
     width: 40%;
     box-sizing:border-box;
+/*    margin: auto 5% auto 5%;*/
     margin: 2% 5% 0 5%;
-    padding: 15px 15px 0px 15px;
+    padding: 0px 15px 0px 15px;
     /*                overflow:hidden;*/
 }
 
@@ -70,14 +75,14 @@ body {
     margin: 5% 5% 5% 5%;
 }
 
+
 .header{
     position:fixed;
     top: 7vh;
     left:3vw;
 
     box-sizing: border-box;
-    height:calc();
-    width:30vw;
+    width:35vw;
     padding:10px 15px 10px 15px;
     white-space: initial;
     vertical-align: middle;
@@ -97,30 +102,35 @@ body {
 /*          INLINE BLOCK DISPLAY - SETTINGS FOR ELEMENTS WITH INLINE BLOCK TREATMENT*/
 .in-block-dis{
     display: inline-block;
-    float:left
+    float:left;
 }
 
 /*          MOBILE VIEWER - ELEMENT CONATINING THUMBNAIL IMAGE OF AD ON MOBILE DEVICE*/
 .mob_viewer{
     /*                background-color: lightpink;*/
-    height: 90%;
-
+    height:70%;
     text-align: center;
+/*    box-sizing: border-box;*/
+/*    padding: 50% auto 50% auto;*/
 }
 
 /*          ORIGINAL IMAGE - SETTING FOR ORIGINAL AD IMG*/
 .org_img{
     /*                background-color:aqua;*/
     height: 50%;
+/*    box-sizing: border-box;*/
 }
 
+#org_img_thumb{
+    margin-top:auto;
+    margin-bottom:auto;
+}
+    
 /*          THUMBNAIL - SETTING FOR THUMBNAIL IMAGES*/
 .thumb{
     width:100%;
     text-align: center;
-    vertical-align: middle;
-    border:.5px solid darkgray;
-    /*                on hover bolde and black border*/
+    border:.5px solid darkgrey;
 }
 .thumb:hover{
     /*                border:2px solid darkgray;*/
@@ -184,6 +194,7 @@ VIEWER DIV - SETTINGH FOR FILE VIEWER DIV*/
 
 #exit_view{
     height:20px;
+    vertical-align: middle;
     /*
     margin-left:auto;
     margin-right:auto;

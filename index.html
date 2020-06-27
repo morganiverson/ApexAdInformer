@@ -2,6 +2,9 @@
     <head>
         <link rel = "stylesheet" type="text/css" href = "Styles/ApxAdInStyles.css" >
 
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+
+
         <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet"> <!-- 'Syncopate' -->
         <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet"> <!-- 'Sawarabi Mincho' -->
         <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet"> <!-- 'Poiret One' -->
@@ -15,13 +18,15 @@
     <body>
         <!--        FILE VIEWER-->
         <div id = "viewer_div">
-            <img id = "exit_view" src = "IMG_Files/x_file_view_.png">  
-            <br><br><br>
+            <div class = "exit_wrap"><img id = "exit_view" src = "IMG_Files/x_file_view_.png"></div> 
+            <br>
             <img id = "img_view_src" class = "viewer_file">
             <iframe id = "pdf_view_src" class = "viewer_file"></iframe>
         </div>
 
+        <!--        CONATINER TRUE BODY-->
         <div class = "cont_div">
+
             <!--            HEADER - NAME AND PURPOSE-->
             <div class = "header">
                 Morgan Iverson
@@ -57,7 +62,7 @@
                 <img id = "org_img_thumb" class = "thumb" src = "IMG_Files/APEX_AD_2_ORG.jpg">
             </span> 
 
-            <!--            DESKOP VIEW BOX-->
+<!--                        DESKOP VIEW BOX-->
             <span class = "desk_viewer in-block-dis fifty_per">
                 <span id = "desk_pdf_ttl" class = "title_txt">DESKTOP VIEW - COMING SOON</span>
                 <br>
@@ -72,11 +77,11 @@
             </span>
 
             <!--            BUTTONS TO INC.COM  APEX.COM AND MY LINKEDIN(?)-->
-            <span class = "button_cont in-block-dis hund_per"> 
+            <div class = "button_cont in-block-dis hund_per"> 
                 <a href = "https://www.apexenergygroup.com/"><img class = "button" src = "IMG_Files/apx-page.jpg"></a>
                 <a href = "https://www.inc.com/"><img class = "button" src = "IMG_Files/inc-page.jpg"></a>
-            
-            </span>
+
+            </div>
         </div>
 
         <script src = "Scripts/ApxAdInfScripts.js"></script>

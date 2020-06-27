@@ -14,6 +14,7 @@ document.getElementById("desk_pdf_ttl").style.pointerEvents = "none";
 //CLOSE VIEWER ON CLICK
 document.getElementById("exit_view").addEventListener("click", function() {
     hideViewer();
+    console.log("...Viewer Closed")
 });
 
 
@@ -67,4 +68,150 @@ function hideViewer(){
     document.getElementById("pdf_view_src").style.display = "none";
     document.getElementById("img_view_src").style.display = "none";
     
+}
+
+//set onload
+var initial_header_height = 0;
+var initial_desk_thumb_height = 0;
+var initial_mob_thumb_height = 0;
+
+window.addEventListener("load", function() {
+    initial_header_height = parseInt(window.getComputedStyle(document.getElementsByClassName("header")[0]).height);
+    initial_mob_thumb_height = parseInt(window.getComputedStyle(document.getElementById("mob_pdf_thumb")).height);
+    initial_desk_thumb_height = 0; //parseInt(window.getComputedStyle(document.getElementById("desk_pdf_thumb")).height);
+    
+    console.log("INITIAL VALUES:: ");
+    console.log("header-height: " + initial_header_height);
+    console.log("mob-thumb-height: " + initial_mob_thumb_height);
+    console.log("desk-thumb-height: " + initial_desk_thumb_height);
+
+    adjustMargin();
+    adjustThumbSpanHeight();
+});
+//
+window.addEventListener("resize", function() {
+    if(objectHeightChanged("header"))
+        adjustMargin();
+    if (objectHeightChanged("mob_pdf_thumb"))
+        adjustThumbSpanHeight();
+});
+
+
+function objectHeightChanged(object_id){
+    var return_value = false;
+    var which = "HMD";
+    
+    //HEADER OR MOPB/DESK THUMBNAIL
+    switch(true){
+        case object_id.indexOf("header") >= 0: 
+            return_value = (parseInt(document.getElementsByClassName(object_id)[0].style.height) != initial_header_height);
+            which = "H";
+            break;
+        case object_id.indexOf("mob") >= 0: 
+            return_value = (parseInt(document.getElementById(object_id).style.height)!= initial_mob_thumb_height);
+            which = "M";
+            break;
+    }
+    
+//    console.log("HEIGHT CHANGE CHECK: " + return_value + " - " + which);
+    
+    if(return_value) {
+        switch(which){
+            case "H": initial_header_height = parseInt(document.getElementsByClassName("header")[0].style.height);
+                break;
+            case "M": initial_mob_thumb_height = parseInt(window.getComputedStyle(document.getElementById("mob_pdf_thumb")).height);
+                break;
+        }
+    }
+    return return_value;
+}
+
+var prev_desc_box_removal = 0; 
+////adjust margin of desc_txt according to height of header
+function adjustMargin(){
+    //COMPUTED STYLES NOT SET
+    var header_top = parseInt(window.getComputedStyle(document.getElementsByClassName("header")[0]).top);
+    var header_height = parseInt(window.getComputedStyle(document.getElementsByClassName("header")[0]).height);
+    var container_top = parseInt(window.getComputedStyle(document.getElementsByClassName("cont_div")[0]).marginTop);
+    var description_box_padding_top = parseInt(window.getComputedStyle(document.getElementsByClassName("desc_box")[0]).paddingTop);
+    
+    var new_margin = (header_top - container_top + header_height - description_box_padding_top - 5);
+    
+    document.getElementsByClassName("desc_box")[0].style.marginTop = new_margin + "px"; //ADD TO TOP
+    
+    var curr_desc_bx_height = parseInt(window.getComputedStyle(document.getElementsByClassName("desc_box")[0]).height) + prev_desc_box_removal; //ADD PREV REMOAVL (OUT OF ORIGINAL WHOLE)
+//    console.log("...DB height:: " + curr_desc_bx_height);
+
+   document.getElementsByClassName("desc_box")[0].style.height = (curr_desc_bx_height - new_margin) + "px";
+//    console.log("...NEW DB height:: " + document.getElementsByClassName("desc_box")[0].style.height);
+    prev_desc_box_removal = new_margin;
+    //SUBTRACT FROM BOTTOM
+    
+//        + "px";
+//    console.log("header-top: " + header_top);
+//    console.log("header-height: " + header_height);
+//    console.log("container-top: " + container_top);
+//    console.log("desc_box_pad-top: " + description_box_padding_top);
+    
+    console.log(">> NEW desc text top margin: " + new_margin);
+}
+
+function adjustThumbSpanHeight(){
+    //TITLE AREA
+var desk_ttl_ht = window.getComputedStyle(document.getElementById("desk_pdf_ttl")).height;
+    var mob_ttl_ht = parseInt(window.getComputedStyle(document.getElementById("mob_pdf_ttl")).height);
+                               
+    var lg = (desk_ttl_ht > mob_ttl_ht) ? desk_ttl_ht: mob_ttl_ht;
+    
+    console.log("Larger: " + desk_ttl_ht)
+    document.getElementById("desk_pdf_ttl").style.height = lg + "px";
+    document.getElementById("mob_pdf_ttl").style.height = lg + "px";
+    
+    
+    //THUMBNAIL AREA 
+    var new_height = (initial_mob_thumb_height + (80));
+    initial_mob_thumb_height = new_height;
+    
+    new_height+= "px";
+    
+    document.getElementsByClassName("mob_viewer")[0].style.height = new_height;
+    document.getElementsByClassName("desk_viewer")[0].style.height = new_height;
+    
+    console.log(">> NEW mobile/desktop viewer height: " + new_height);
+
+}
+
+
+
+//CHNAGE OPACITY OF HEADER AFTER SCROL POSITION
+var saf_body = document.body;
+var body = document.documentElement;
+
+window.addEventListener("scroll", function(){
+    var scroll_pos = (saf_body.scrollTop == 0) ? body.scrollTop: saf_body.scrollTop;
+//    console.log("SCROLL:: " + scroll_pos);
+    if(scroll_pos > 15){
+        makeOpaque();
+    }
+    else{
+        makeSolid();
+    }
+    if(scroll_pos > 160){
+//        console.log(">> DB scroll reset");
+    }
+});
+
+
+function makeOpaque(){
+    var header_ref = document.getElementsByClassName("header")[0];
+    header_ref.style.transition = "opacity 1s";
+    header_ref.style.opacity = "50%";
+    console.log(">> OPAQUE header")
+}
+
+function makeSolid(){
+     var header_ref = document.getElementsByClassName("header")[0];
+//    header_ref.style.transition = "opacity 3s";
+    header_ref.style.opacity = "100%";
+    console.log(">> NOT OPAQUE header");
 }
