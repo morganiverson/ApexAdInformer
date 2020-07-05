@@ -18,25 +18,26 @@
     <body>
         <!--        FILE VIEWER-->
         <div id = "viewer_div">
-            <div class = "exit_wrap"><img id = "exit_view" src = "IMG_Files/x_file_view_.png"></div> 
+            <div class = "exit_wrap">
+                <img id = "exit_view" src = "IMG_Files/x_file_view_.png"></div> 
             <br>
             <img id = "img_view_src" class = "viewer_file">
             <iframe id = "pdf_view_src" class = "viewer_file"></iframe>
         </div>
 
         <!--        CONATINER TRUE BODY-->
-        <div class = "cont_div">
+        <div class = "desk_body">
 
             <!--            HEADER - NAME AND PURPOSE-->
-            <div class = "header">
+            <div class = "desk_head">
                 Morgan Iverson
                 <br>
                 Ad Developement: Apex Energy Group
             </div>
 
             <!--            DESCRIPTION BOX-->
-            <span class = "desc_box in-block-dis fifty_per">
-                <p class = "desc_txt">
+            <span id = "desc_box" class = "desk_comp">
+                <p id = "desk_dtxt">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel blandit nunc. Maecenas elementum, urna et tempor porta, tortor metus facilisis ex, ultrices sollicitudin sapien dolor a leo. Morbi feugiat bibendum erat a cursus. Aliquam at felis nisl. Nulla rutrum nibh aliquam vestibulum vulputate. Suspendisse potenti. Fusce nec nunc vel purus pretium dignissim sit amet vel ligula. Nam id posuere arcu.
                     <br>
                     <br>
@@ -58,33 +59,34 @@
             </span>
 
             <!--            ORIGINAL IMG BOX-->
-            <span class = "org_img in-block-dis fifty_per">
-                <img id = "org_img_thumb" class = "thumb" src = "IMG_Files/APEX_AD_2_ORG.jpg">
+            <span id = "desk_ad" class = "desk_comp">
+                <img id = "desk_ad_prev_thumb" class = "desk_prev" src = "IMG_Files/APEX_AD_2_ORG.jpg">
             </span> 
-
+            
+<!--            MOBILE VIEW BOX-->
+            <span id = "desk_mob_web_prev" class = "desk_comp">
+                <span id = "desk_mob_ttl" class = "desk_ttl">MOBILE VIEW</span>
+                <br>
+                <img id = "desk_mob_web_prev_thumb" class = "desk_prev" src = "IMG_Files/ApxMobView_THUMB.jpg">
+            </span>
 <!--                        DESKOP VIEW BOX-->
-            <span class = "desk_viewer in-block-dis fifty_per">
-                <span id = "desk_pdf_ttl" class = "title_txt">DESKTOP VIEW - COMING SOON</span>
+            <span id = "desk_desk_web_prev" class = "desk_comp">
+                <span id = "desk_desk_ttl" class = "desk_ttl">DESKTOP VIEW - COMING SOON</span>
                 <br>
-                <img id = "desk_pdf_thumb" class = "thumb"> 
+                <img id = "desk_desk_web_prev_thumb" class = "desk_web_prev"> 
             </span>
 
-            <!--            MOBILE VIEW BOX-->
-            <span class = "mob_viewer in-block-dis fifty_per">
-                <span id = "mob_pdf_ttl" class = "title_txt">MOBILE VIEW</span>
-                <br>
-                <img id = mob_pdf_thumb class = "thumb" src = "IMG_Files/ApxMobView_THUMB.jpg">
-            </span>
-            <!--            BUTTONS TO INC.COM  APEX.COM AND MY LINKEDIN(?)-->
-            <div class = "button_cont hund_per"> 
+<!--                    BUTTONS TO INC.COM  APEX.COM AND MY LINKEDIN(?)-->
+            <div class = "desk_button_cont"> 
                 <hr>
-
-                <a href = "https://www.apexenergygroup.com/" target = "_blank"><img class = "button" src = "IMG_Files/apx-page.jpg"></a>
-                <a href = "https://www.inc.com/" target = "_blank"><img class = "button" src = "IMG_Files/inc-page.jpg"></a>
-
+                <a href = "https://www.apexenergygroup.com/" target = "_blank"><img class = "desk_button" src = "IMG_Files/apx-page.jpg"></a>
+                <a href = "https://www.inc.com/" target = "_blank"><img class = "desk_button" src = "IMG_Files/inc-page.jpg"></a>
             </div>
         </div>
 
+        <div id = "mobile-view">
+            
+        </div>
         <script src = "Scripts/ApxAdInfScripts.js"></script>
     </body>
 </html>

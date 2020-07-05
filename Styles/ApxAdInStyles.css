@@ -7,7 +7,7 @@ body {
     background-color: 404040;
 /*    overflow:scroll;*/
 }
-.button{
+.desk_button{
     box-sizing: border-box;
 /*    height:70%;*/
     width:30%;
@@ -18,69 +18,58 @@ body {
     border: .5px solid darkgrey;
     /*    box-shadow: -3px 3px 3px darkgrey;*/
 }
-.button:hover{
+.desk_button:hover{
 
     box-shadow: 0px 0px 5px 5px darkgrey;
 }
-.button_cont{
-float:left;}
+
 
 /*           CONTAINER DIV - SMALLER VERSION OF BODY*/
-.cont_div{
+.desk_body{
     background-color:white;
     border: .5px solid darkgrey;
     box-sizing:border-box;
     overflow: hidden;
-    margin: 1% 10% 5% 10%;
     box-shadow: 1px 1px 1px 1px #4D4D4D;
+    
+    margin: 1% auto 5% auto;
+    width: 80vw;
 }
 /*          DESCRIPTION TEXT - TEXT THAT EXPLAINS PURPOSE OF DOCUMENT*/
-.desc_box {
+#desc_box {
     background-color:white;
     text-align: justify;
     text-justify: inter-character;
-    height: 50%;
+    height:60%;
     overflow-y: scroll;
 }
-.desc_txt{
+#desk_dtxt{
     line-height: 17px;
     font-family: Serif;
     font-size:17px;
 }
-
-/*          DESKTOP VIEWER - SPAN CONTAINING THUMBNAIL IMAGE OF AD ON DESKTOP DEVICE*/
-.desk_viewer{
-    /*                background-color: lightgreen;*/
-    min-height: 321px;
-    height: 70%;
-    text-align: center;
-}
-
 .exit_wrap{
     height: 30px;
 }
+.desk_comp{
+    display: inline-block;
+    float:left;
 
-/*          FIFTER PERCENT - SETTING FOR EACH MAJOR SPAN*/
-.fifty_per{
     width: 40%;
     box-sizing:border-box;
 /*    margin: auto 5% auto 5%;*/
     margin: 2% 5% 0 5%;
     padding: 0px 15px 0px 15px;
-/*        min-height: 321px;*/
+/*    min-height: 0px;*/
 
     /*                overflow:hidden;*/
 }
-
-/*           HUNDERED PERCENT - SIZE SETTINGS FOR DIV CIONTAINING BUTTONS*/
-.hund_per{
+.desk_button_cont{
+    float:left;
     width: 90%;
-/*    height: 20%;*/
     margin: 5% 5% 5% 5%;
 }
-
-
-.header{
+.desk_head{
     position:fixed;
     top: 3vh;
     left:3vw;
@@ -103,66 +92,46 @@ float:left;}
     color: black; //#404040;
     border-radius: 5px;
     box-shadow: -1px 2px 5px #4D4D4D;
-}
-/*          INLINE BLOCK DISPLAY - SETTINGS FOR ELEMENTS WITH INLINE BLOCK TREATMENT*/
-.in-block-dis{
-    display: inline-block;
-    float:left;
-}
-
-/*          MOBILE VIEWER - ELEMENT CONATINING THUMBNAIL IMAGE OF AD ON MOBILE DEVICE*/
-.mob_viewer{
+}   
+.desk_web_prev{
     /*                background-color: lightpink;*/
-    min-height: 321px;
+/*    min-height: 321px;*/
     height:70%;
     text-align: center;
 /*    box-sizing: border-box;*/
 /*    padding: 50% auto 50% auto;*/
 }
-
-/*          ORIGINAL IMAGE - SETTING FOR ORIGINAL AD IMG*/
-.org_img{
+#desk_ad{
     /*                background-color:aqua;*/
-    min-height: 435px;
-    height: 50%;
+/*    height: 50%;*/
 /*    box-sizing: border-box;*/
 }
-#org_img_thumb{
+#desk_ad_prev{
     margin-top:auto;
     margin-bottom:auto;
 }
-    
-/*          THUMBNAIL - SETTING FOR THUMBNAIL IMAGES*/
-.thumb{
+.desk_prev{
     width:100%;
     text-align: center;
     border:.5px solid darkgrey;
 }
-.thumb:hover{
+.desk_prev:hover{
     /*                border:2px solid darkgray;*/
     box-shadow: 0px 0px 5px 5px darkgrey;
 }
 
-/*          TITLE TEXT - SETTINGS FOR TITLE LABELS ON DOCUMENTS*/
-.title_txt{
+.desk_ttl{
     width:100%;
     line-height: 50px;
     font-size: 25px;
     font-family: 'Gayathri', sans-serif;
     font-weight:bold;
+    text-align: center;
     /*                SEWT FONT AND FONT SIZE TEXT ALIGN*/
 }
-.title_txt:hover{
+.desk_ttl:hover{
     font-size: 26px;
 }
-/*           
-BUTTON SPAN -  SETTINGS FOR SPAN CONTAINING BUTTONS*/
-.button_span{
-    background-color: lightgrey;
-    height: 10%;
-}
-/*            
-VIEWER DIV - SETTINGH FOR FILE VIEWER DIV*/
 #viewer_div{
     z-index: 5;
     position: fixed;
@@ -180,15 +149,11 @@ VIEWER DIV - SETTINGH FOR FILE VIEWER DIV*/
     overflow-y:scroll;
     overflow-x: hidden;
 }
-
-/*          VIEWER FILE - SETTING FOR FILES SHOWN IN FILE VIEWER*/
 .viewer_file{
     width: 800px;
     margin: 0 auto;
 
 }
-
-/*          PDF VIEWER SOURCE - SIZE SETTINGS FOR PDF VIEWER*/
 #pdf_view_src{
     height:600px;
     /*
@@ -197,7 +162,6 @@ VIEWER DIV - SETTINGH FOR FILE VIEWER DIV*/
     */
     border:none;
 }
-
 #exit_view{
     height:20px;
     vertical-align: middle;
@@ -215,4 +179,8 @@ hr{
     height:1px;
     width:90%;
     margin: 0 auto 0 auto;
+}
+
+#img_view_src{
+    width:70vw;
 }
