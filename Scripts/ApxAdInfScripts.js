@@ -6,6 +6,7 @@ window.addEventListener("load", function(){
     //CHECK VIEWPORT WIDTH
     mobile = isMobile();
     console.log("?? DEVICE - " + navigator.platform);
+    console.log("?? MOBILE - " + mobile);
 
     if(mobile){
         toMobile();
