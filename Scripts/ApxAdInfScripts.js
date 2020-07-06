@@ -11,9 +11,9 @@ window.addEventListener("load", function(){
     if(mobile){
         toMobile();
 //        ONE TIME 
-        adjustMargin();
-        adjustThumbSpanHeight();
-        setOrgImgMargins();
+//        adjustMargin();
+//        adjustThumbSpanHeight();
+//        setOrgImgMargins();
     }
     else{
 
