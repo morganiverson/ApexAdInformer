@@ -113,7 +113,7 @@ function toMobile(){
     desk_head_comp.style.top = "0px";
     desk_head_comp.style.left = "0px";
         desk_head_comp.style.width = "70vw";
-        desk_head_comp.style.marginLeft = "11vw";//margin + "px";
+        desk_head_comp.style.marginLeft = "11.5vw";//margin + "px";
     desk_head_comp.style.marginRight = margin + "px";
         desk_head_comp.style.marginTop = "2vw";
     desk_head_comp.style.boxSizing = "content-box";
