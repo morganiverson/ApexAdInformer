@@ -158,6 +158,7 @@ function showFile(obj_id) {
             output.src = mob_src;
             console.log("SRC CHNGE:: " + output.src);
         }
+//        output.style.width = "90vw"
         output.style.display = "inline";
     }
 
@@ -184,9 +185,10 @@ function hideViewer(){
 
     //CLEAR SOURCES
     document.getElementById("pdf_view_src").style.display = "none";
+    document.getElementById("pdf_view_src").style.width = 0;
     document.getElementById("pdf_view_src").src = "";
     document.getElementById("img_view_src").style.display = "none";
-
+    document.getElementById("img_view_src").style.width = 0;
 }
 
 
