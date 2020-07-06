@@ -8,7 +8,11 @@ window.addEventListener("load", function(){
     console.log("?? DEVICE - " + navigator.platform);
 
     if(mobile){
-        toMobile(); 
+        toMobile();
+//        ONE TIME 
+        adjustMargin();
+        adjustThumbSpanHeight();
+        setOrgImgMargins();
     }
     else{
 
