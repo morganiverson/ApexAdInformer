@@ -11,7 +11,7 @@ window.addEventListener("load", function(){
     console.log("?? MOBILE - " + mobile);
 
     if(mobile){
-        adjustMargin();
+
     }
     else{
 
@@ -52,7 +52,7 @@ window.addEventListener("load", function(){
         setOrgImgMargins();
     }
 
-    
+
     //SHOW ORIGINAL IMAGE IN VIEWER
     document.getElementById("desk_ad_prev_thumb").addEventListener("click", function() {showFile("desk_ad_prev_thumb")});
     //SHOW MOBILE PDF IN VIEWER
@@ -87,58 +87,42 @@ function toMobile(){
     desk_comp_class.forEach(function(item, index) {
         desk_comp_class[index].style.display = "block";
         desk_comp_class[index].style.width = "90%";
-        
+
         desk_comp_class[index].style.marginTop = "0px";
-//        desk_comp_class[index].style.marginRight = "auto";
+        //        desk_comp_class[index].style.marginRight = "auto";
         desk_comp_class[index].style.marginBottom = "100px";
-//        desk_comp_class[index].style.marginLeft = "auto";
-        
+        //        desk_comp_class[index].style.marginLeft = "auto";
+
     });
+
     //    DESKTOP HEADING
     var desk_head_comp = document.getElementById('desk_head');
-    
-    
-    
-   
-    //NOT FIXED NEW POS CENTERED
-        desk_head_comp.style.position = "absolute"; 
-//    desk_head_comp.style.top = "0px";
-    desk_head_comp.style.left = document.getElementsByClassName("desk_body")[0].style.left;
-        var body_width = parseInt(window.getComputedStyle(document.getElementsByClassName("desk_body")[0]).width);
+    desk_head_comp.style.position = "absolute";
+    desk_head_comp.style.marginTop = "2vw";
+    desk_head_comp.style.width = "75vw";
 
-        desk_head_comp.style.width = body_width * .8;
-    
-    var header_width = parseInt(window.getComputedStyle(desk_head_comp).width);
-    var margin = (body_width - header_width) / 2;
-     console.log("BODY WIDTH - " + body_width);
-    console.log("HEADER WIDTH - " + header_width);
-    console.log("new marg - " + margin);
-        desk_head_comp.style.marginLeft = margin + "px";
-    desk_head_comp.style.marginRight = margin + "px";
-        desk_head_comp.style.marginTop = "2vw";
-//    desk_head_comp.style.boxSizing = "content-box";
-    
-//    console.log(">> BEFORE")
-//    console.log("HEADER HEIGHT:: " + window.getComputedStyle(desk_head_comp).height);
-//    console.log("HEADER FONT SIZE:: " + window.getComputedStyle(desk_head_comp).fontSize);
-    var head_HGT = parseInt(window.getComputedStyle(desk_head_comp).height);
-//    desk_head_comp.style.fontSize = (head_HGT * .3) + "px";
-    
-//    console.log(">> AFTER")
-//    console.log("HEADER HEIGHT:: " + window.getComputedStyle(desk_head_comp).height);
-//    console.log("HEADER FONT SIZE:: " + window.getComputedStyle(desk_head_comp).fontSize);
-    
+    //    CENTER HEADER
+    console.log(window.getComputedStyle(desk_head_comp).marginRight);
+    console.log(window.innerWidth);
+    console.log(window.getComputedStyle(desk_head_comp).width);
+    console.log((window.innerWidth - parseInt(window.getComputedStyle(desk_head_comp).width)) / 2);
 
-//    FONT SIZES
+
+    desk_head_comp.style.left = "0px";
+    var new_margin = ((window.innerWidth - parseInt(window.getComputedStyle(desk_head_comp).width)) / 2) + "px";
+    desk_head_comp.style.marginLeft = new_margin;
+    desk_head_comp.style.marginRight = new_margin;
+
+    //    FONT SIZES
     var desk_ttl_class = document.querySelectorAll('.desk_ttl');
-    desk_ttl_class.forEach(function(item, index) {
-//        desk_ttl_class[index].style.fontSize = "50px";
-    });
-    
-    var dtxt = document.getElementById("desk_dtxt");
-//    dtxt.style.fontSize = "34px";
-//    dtxt.style.lineHeight = "34px";
+    desk_ttl_class.forEach(function(item, index) {});
 
+    var desc_box_comp = document.getElementById("desc_box");
+    desc_box_comp.style.height = "auto";
+    adjustMargin();
+
+    adjustThumbSpanHeight();
+    document.getElementById("desk_desk_web_prev").style.height = "auto";
 
 }
 
@@ -152,7 +136,6 @@ function showFile(obj_id) {
 
     //SET OUTPUT SRC TO IMG
     if(obj_id.indexOf("pdf") < 0) {
-
         document.getElementById("img_view_src").src = document.getElementById(obj_id).src;
 
         console.log(">>> IMG");
@@ -164,17 +147,18 @@ function showFile(obj_id) {
         var mob_src = "PDF_Files/ApxMobView.pdf";
         var desk_src = "";
 
+        var output = document.getElementById("pdf_view_src");
         console.log(">>> PDF");
 
-        if(obj_id.indexOf("mob") < 0){
-            document.getElementById("pdf_view_src").src = desk_src;
-            console.log("SRC CHNGE:: " + document.getElementById("pdf_view_src").src);
+        if(obj_id.indexOf("desk_desk") >= 0){
+            output.src = desk_src;
+            console.log("SRC CHNGE:: " + output);
         }
         else {
-            document.getElementById("pdf_view_src").src = mob_src;
-            console.log("SRC CHNGE:: " + document.getElementById("pdf_view_src").src);
+            output.src = mob_src;
+            console.log("SRC CHNGE:: " + output.src);
         }
-        document.getElementById("pdf_view_src").style.display = "inline";
+        output.style.display = "inline";
     }
 
     //SHOW VIEWER
@@ -200,16 +184,13 @@ function hideViewer(){
 
     //CLEAR SOURCES
     document.getElementById("pdf_view_src").style.display = "none";
+    document.getElementById("pdf_view_src").src = "";
     document.getElementById("img_view_src").style.display = "none";
 
 }
 
 
-//set onload
-var initial_header_height = 0;
-var initial_desk_thumb_height = 0;
-var initial_mob_thumb_height = 0;
-var initial_org_img_cont_HGT = 0;
+
 
 //CHECK IF TH EHEIGHT OF AN OBJECT HAS CHANGED
 function objectHeightChanged(object_id){
@@ -249,6 +230,7 @@ var prev_desc_box_removal = 0;
 var new_margin = 0;
 
 function adjustMargin(){
+    console.log("--- adjustMargin() --")
     //COMPUTED STYLES NOT SET
     var header_top = parseInt(window.getComputedStyle(document.getElementById("desk_head")).top);
     var header_margin_top = parseInt(window.getComputedStyle(document.getElementById("desk_head")).marginTop);
@@ -256,26 +238,28 @@ function adjustMargin(){
     var container_top = parseInt(window.getComputedStyle(document.getElementsByClassName("desk_body")[0]).marginTop);
     var description_box_padding_top = parseInt(window.getComputedStyle(document.getElementById("desc_box")).paddingTop);
 
-    var temp_marg = ((header_top + header_margin_top) + header_height - description_box_padding_top + 25);
+    var temp_marg = ((header_top + header_margin_top) + header_height - description_box_padding_top + 10);
+
     if(temp_marg != new_margin) {
         new_margin = temp_marg;
 
         document.getElementById("desc_box").style.marginTop = new_margin + "px"; //ADD TO TOP
 
+
         var curr_desc_bx_height = parseInt(window.getComputedStyle(document.getElementById("desc_box")).height) + prev_desc_box_removal; //ADD PREV REMOAVL (OUT OF ORIGINAL WHOLE)
-                    console.log("...DB height:: " + curr_desc_bx_height);
+        console.log("...DB height:: " + curr_desc_bx_height);
 
         document.getElementById("desc_box").style.height = (curr_desc_bx_height - new_margin) + "px";
-        //            console.log("...NEW DB height:: " + document.getElementsByClassName("desc_box")[0].style.height);
+        console.log("...NEW DB height:: " + document.getElementById("desc_box").style.height);
         prev_desc_box_removal = new_margin;
         //SUBTRACT FROM BOTTOM
 
         //        + "px";
-            console.log("header-top: " + header_top);
-            console.log("header-height: " + header_height);
+        console.log("header-top: " + header_top);
+        console.log("header-height: " + header_height);
         console.log("header-top-margin: " + header_margin_top);
-            console.log("container-top: " + container_top);
-            console.log("desc_box_pad-top: " + description_box_padding_top);
+        console.log("container-top: " + container_top);
+        console.log("desc_box_pad-top: " + description_box_padding_top);
 
         console.log(">> NEW desc text top margin: " + new_margin);
         console.log(">> NEW desc text height: " + (curr_desc_bx_height - new_margin));
@@ -308,11 +292,15 @@ function setOrgImgMargins(){
     console.log(">> NEW org img margin top/bottom: " + new_org_marg);
     console.log("new height - " + document.getElementById("desk_ad").height)
 }
-
+//set onload
+var initial_header_height = 0;
+var initial_desk_thumb_height = 0;
+var initial_mob_thumb_height = 0;
+var initial_org_img_cont_HGT = 0;
 //CONTROL HEIGHT OF THUMB SPAN
 function adjustThumbSpanHeight(){
     //TITLE AREA
-    var desk_ttl_ht = parseInt(window.getComputedStyle(document.getElementById("desk_desk_ttl")).height);
+    var desk_ttl_ht = 0;//parseInt(window.getComputedStyle(document.getElementById("desk_desk_ttl")).height);
     var mob_ttl_ht = parseInt(window.getComputedStyle(document.getElementById("desk_mob_ttl")).height);
 
     var lg = (desk_ttl_ht > mob_ttl_ht) ? desk_ttl_ht: mob_ttl_ht;
@@ -324,12 +312,13 @@ function adjustThumbSpanHeight(){
 
     //THUMBNAIL AREA 
     var new_height = (initial_mob_thumb_height + (80));
+    console.log(initial_mob_thumb_height);
     initial_mob_thumb_height = new_height;
 
     new_height+= "px";
 
     document.getElementById("desk_mob_web_prev").style.height = new_height;
-    document.getElementById("desk_desk_web_prev").style.height = new_height;
+    //    document.getElementById("desk_desk_web_prev").style.height = "auto";// new_height;
 
     console.log(">> NEW mobile/desktop viewer height: " + new_height);
 
