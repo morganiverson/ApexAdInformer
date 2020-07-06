@@ -106,6 +106,10 @@ function toMobile(){
         desk_head_comp.style.marginTop = "2vw";
     desk_head_comp.style.boxSizing = "content-box";
     
+    console.log("HEADER HEIGHT:: " + desk_head_comp.style.height);
+    console.log("HEADER FONT SIZE:: " + desk_head_comp.style.fontSize);
+    
+
 //    FONT SIZES
     var desk_ttl_class = document.querySelectorAll('.desk_ttl');
     desk_ttl_class.forEach(function(item, index) {
