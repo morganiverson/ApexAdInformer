@@ -52,6 +52,7 @@ window.addEventListener("load", function(){
         setOrgImgMargins();
     }
 
+    
     //SHOW ORIGINAL IMAGE IN VIEWER
     document.getElementById("desk_ad_prev_thumb").addEventListener("click", function() {showFile("desk_ad_prev_thumb")});
     //SHOW MOBILE PDF IN VIEWER
@@ -96,25 +97,36 @@ function toMobile(){
     //    DESKTOP HEADING
     var desk_head_comp = document.getElementById('desk_head');
     
+    var body_width = parseInt(window.innerWidth);//parseInt(window.getComputedStyle(document.body).width) + parseInt(window.getComputedStyle(document.body).marginLeft) + parseInt(window.getComputedStyle(document.body).marginRight);
+//    document.body.width = body_width + "px";
+    
+    
+    var header_width = parseInt(window.getComputedStyle(desk_head_comp).width);
+    
+    var margin = 0;//(body_width - header_width) / 2;
+    
+    console.log("BODY WIDTH - " + body_width);
+    console.log("HEADER WIDTH - " + header_width);
+    console.log("new marg - " + margin);
     //NOT FIXED NEW POS CENTERED
         desk_head_comp.style.position = "absolute"; 
     desk_head_comp.style.top = "0px";
     desk_head_comp.style.left = "0px";
         desk_head_comp.style.width = "70vw";
-        desk_head_comp.style.marginLeft = "12vw";
-    desk_head_comp.style.marginRight = "12vw";
+        desk_head_comp.style.marginLeft = "11vw";//margin + "px";
+    desk_head_comp.style.marginRight = margin + "px";
         desk_head_comp.style.marginTop = "2vw";
     desk_head_comp.style.boxSizing = "content-box";
     
-    console.log(">> BEFORE")
-    console.log("HEADER HEIGHT:: " + window.getComputedStyle(desk_head_comp).height);
-    console.log("HEADER FONT SIZE:: " + window.getComputedStyle(desk_head_comp).fontSize);
+//    console.log(">> BEFORE")
+//    console.log("HEADER HEIGHT:: " + window.getComputedStyle(desk_head_comp).height);
+//    console.log("HEADER FONT SIZE:: " + window.getComputedStyle(desk_head_comp).fontSize);
     var head_HGT = parseInt(window.getComputedStyle(desk_head_comp).height);
-    desk_head_comp.style.fontSize = (head_HGT * .3) + "px";
+//    desk_head_comp.style.fontSize = (head_HGT * .3) + "px";
     
-    console.log(">> AFTER")
-    console.log("HEADER HEIGHT:: " + window.getComputedStyle(desk_head_comp).height);
-    console.log("HEADER FONT SIZE:: " + window.getComputedStyle(desk_head_comp).fontSize);
+//    console.log(">> AFTER")
+//    console.log("HEADER HEIGHT:: " + window.getComputedStyle(desk_head_comp).height);
+//    console.log("HEADER FONT SIZE:: " + window.getComputedStyle(desk_head_comp).fontSize);
     
 
 //    FONT SIZES
@@ -207,7 +219,7 @@ function objectHeightChanged(object_id){
     //HEADER OR MOPB/DESK THUMBNAIL
     switch(true){
         case object_id.indexOf("head") >= 0: 
-            return_value = (parseInt(document.getElementsByClassName(object_id)[0].style.height) != initial_header_height);
+            return_value = (parseInt(document.getElementById(object_id).style.height) != initial_header_height);
             which = "H";
             break;
         case object_id.indexOf("mob") >= 0: 
@@ -244,7 +256,7 @@ function adjustMargin(){
     var container_top = parseInt(window.getComputedStyle(document.getElementsByClassName("desk_body")[0]).marginTop);
     var description_box_padding_top = parseInt(window.getComputedStyle(document.getElementById("desc_box")).paddingTop);
 
-    var temp_marg = ((header_top + header_margin_top - 0) + header_height - description_box_padding_top + 10);
+    var temp_marg = ((header_top + header_margin_top) + header_height - description_box_padding_top + 25);
     if(temp_marg != new_margin) {
         new_margin = temp_marg;
 

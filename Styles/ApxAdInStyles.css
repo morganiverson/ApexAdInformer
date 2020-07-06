@@ -3,8 +3,10 @@ img :focus{
 }
 
 body {
-    position:relative;
+/*    position:relative;*/
     background-color: 404040;
+    box-sizing: border-box;
+    
 /*    overflow:scroll;*/
 }
 .desk_button{
@@ -26,6 +28,7 @@ body {
 
 /*           CONTAINER DIV - SMALLER VERSION OF BODY*/
 .desk_body{
+    left:0;
     background-color: white;
     border: .5px solid darkgrey;
     box-sizing:border-box;
