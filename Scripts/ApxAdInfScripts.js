@@ -10,7 +10,10 @@ window.addEventListener("load", function(){
     console.log("?? DEVICE - " + navigator.platform);
     console.log("?? MOBILE - " + mobile);
 
-    if(!mobile){
+    if(mobile){
+        adjustMargin();
+    }
+    else{
 
         //        MAKE HEADER OPAQUE ON SCROLL
         window.addEventListener("scroll", function(){
