@@ -89,7 +89,7 @@ function toMobile(){
         
         desk_comp_class[index].style.marginTop = "0px";
 //        desk_comp_class[index].style.marginRight = "auto";
-        desk_comp_class[index].style.marginBottom = "50px";
+        desk_comp_class[index].style.marginBottom = "100px";
 //        desk_comp_class[index].style.marginLeft = "auto";
         
     });
@@ -233,7 +233,7 @@ function adjustMargin(){
     var container_top = parseInt(window.getComputedStyle(document.getElementsByClassName("desk_body")[0]).marginTop);
     var description_box_padding_top = parseInt(window.getComputedStyle(document.getElementById("desc_box")).paddingTop);
 
-    var temp_marg = ((header_top + header_margin_top - container_top) + header_height - description_box_padding_top + 25);
+    var temp_marg = ((header_top + header_margin_top - 0) + header_height - description_box_padding_top + 10);
     if(temp_marg != new_margin) {
         new_margin = temp_marg;
 
