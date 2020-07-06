@@ -53,6 +53,8 @@ function showFile(obj_id) {
 
     //LOCK SCROLLING OF BODY
     document.body.style.overflowY = "hidden";
+    document.body.style.overflowX = "hidden";
+    
 
     console.log("...Showing Viewer");
 }
@@ -63,6 +65,9 @@ function hideViewer(){
 
     //UNLOCK SCROLLING
     document.body.style.overflowY = "auto";
+    document.body.style.overflowX = "auto";
+
+    
 
     //CLEAR SOURCES
     document.getElementById("pdf_view_src").style.display = "none";
@@ -87,15 +92,15 @@ var initial_org_img_cont_HGT = 0;
 //SHOW ORIGINAL IMAGE IN VIEWER
 document.getElementById("desk_ad_prev_thumb").addEventListener("click", function() {showFile("desk_ad_prev_thumb")});
 //SHOW MOBILE PDF IN VIEWER
-document.getElementById("desk_mob_web_prev_thumb").addEventListener("click", function() {showFile("desk_mob_web_prev_thumb")});
-document.getElementById("desk_mob_ttl").addEventListener("click", function() {showFile("desk_mob_web_prev_thumb")});
+document.getElementById("desk_mob_pdf_thumb").addEventListener("click", function() {showFile("desk_mob_pdf_thumb")});
+document.getElementById("desk_mob_ttl").addEventListener("click", function() {showFile("desk_mob_pdf_thumb")});
 //SHOW DESKTOP PDF IN VIEWER
-//document.getElementById("desk_mob_web_prev").addEventListener("click", function() {showFile("desk_mob_web_prev")});
-//document.getElementById("desk_desk_ttl").addEventListener("click", function() {showFile("desk_desk_ttl")});
+//document.getElementById("desk_desk_pdf_thumb").addEventListener("click", function() {showFile("desk_desk_pdf_thumb")});
+//document.getElementById("desk_desk_ttl").addEventListener("click", function() {showFile("desk_desk_pdf_thumb")});
     
     window.addEventListener("load", function() {
         initial_header_height = parseInt(window.getComputedStyle(document.getElementsByClassName("desk_head")[0]).height);
-        initial_mob_thumb_height = parseInt(window.getComputedStyle(document.getElementById("desk_mob_web_prev_thumb")).height);
+        initial_mob_thumb_height = parseInt(window.getComputedStyle(document.getElementById("desk_mob_pdf_thumb")).height);
         initial_desk_thumb_height = 0; //parseInt(window.getComputedStyle(document.getElementById("desk_desk_web_prev_thumb")).height);
         initial_org_img_cont_HGT = parseInt(window.getComputedStyle(document.getElementById("desk_ad")).height);
 
@@ -135,7 +140,7 @@ document.getElementById("desk_mob_ttl").addEventListener("click", function() {sh
             switch(which){
                 case "H": initial_header_height = parseInt(document.getElementsByClassName("desk_head")[0].style.height);
                     break;
-                case "M": initial_mob_thumb_height = parseInt(window.getComputedStyle(document.getElementById("desk_mob_web_prev_thumb")).height);
+                case "M": initial_mob_thumb_height = parseInt(window.getComputedStyle(document.getElementById("desk_mob_pdf_thumb")).height);
                     break;
             }
         }
@@ -234,7 +239,7 @@ document.getElementById("desk_mob_ttl").addEventListener("click", function() {sh
     window.addEventListener("resize", function() {
         if(objectHeightChanged("desk_head"))
             adjustMargin();
-        if(objectHeightChanged("desk_mob_web_prev_thumb"))
+        if(objectHeightChanged("desk_mob_pdf_thumb"))
             adjustThumbSpanHeight();
         
         setOrgImgMargins();

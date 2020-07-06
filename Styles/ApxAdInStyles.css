@@ -150,7 +150,7 @@ body {
     overflow-x: hidden;
 }
 .viewer_file{
-    width: 800px;
+/*    width: 800px;*/
     margin: 0 auto;
 
 }
@@ -181,6 +181,11 @@ hr{
     margin: 0 auto 0 auto;
 }
 
+
 #img_view_src{
-    width:70vw;
+    height: 85vh;
+}
+#pdf_view_src{
+    width: 90vh;
+    height: 85vh;
 }
