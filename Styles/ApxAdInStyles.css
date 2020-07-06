@@ -74,7 +74,7 @@ body {
     width: 90%;
     margin: 5% 5% 5% 5%;
 }
-.desk_head{
+#desk_head{
     position:fixed;
     top: 3vh;
     left:3vw;
@@ -140,6 +140,7 @@ body {
     font-family: 'Gayathri', sans-serif;
     font-weight:bold;
     text-align: center;
+    display:inline-block;
     /*                SEWT FONT AND FONT SIZE TEXT ALIGN*/
 }
 .desk_ttl:hover{

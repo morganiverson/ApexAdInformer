@@ -37,7 +37,7 @@ window.addEventListener("load", function(){
         });
 
         //SET INITIAL VALUES, MARGINS AND HEIGHTS ON LOAD
-        initial_header_height = parseInt(window.getComputedStyle(document.getElementsByClassName("desk_head")[0]).height);
+        initial_header_height = parseInt(window.getComputedStyle(document.getElementById("desk_head")).height);
         initial_mob_thumb_height = parseInt(window.getComputedStyle(document.getElementById("desk_mob_pdf_thumb")).height);
         initial_desk_thumb_height = 0; //parseInt(window.getComputedStyle(document.getElementById("desk_desk_web_prev_thumb")).height);
         initial_org_img_cont_HGT = parseInt(window.getComputedStyle(document.getElementById("desk_ad")).height);
@@ -78,23 +78,33 @@ function isMobile(){
             navigator.userAgent.match(/BlackBerry/i) ||
             navigator.userAgent.match(/webOS/i));
 }
+
 //CHNAGE SETTINGS FOR MOBILE DISPLAY
 function toMobile(){
     //    DESKTOP COMPONENT
     var desk_comp_class = document.querySelectorAll('.desk_comp');
     desk_comp_class.forEach(function(item, index) {
         desk_comp_class[index].style.display = "block";
-        desk_comp_class[index].style.width = "100%";
-        desk_comp_class[index].style.margin = "0px";
+        desk_comp_class[index].style.width = "90%";
+        
+        desk_comp_class[index].style.marginTop = "0px";
+//        desk_comp_class[index].style.marginRight = "auto";
+        desk_comp_class[index].style.marginBottom = "50px";
+//        desk_comp_class[index].style.marginLeft = "auto";
+        
     });
     //    DESKTOP HEADING
-    var desk_head_comp = document.querySelectorAll('desk_head');
-    desk_head_comp.forEach(function(item, index){
-        desk_head_comp[index].style.position = "absolute";
-        desk_head_comp[index].style.width = "77vw";
-        desk_head_comp[index].style.marginLeft = "10.5vw";
-        desk_head_comp[index].style.marginTop = "2vw";
-    });
+    var desk_head_comp = document.getElementById('desk_head');
+    
+    //NOT FIXED NEW POS CENTERED
+        desk_head_comp.style.position = "absolute"; 
+    desk_head_comp.style.top = "0px";
+    desk_head_comp.style.left = "0px";
+        desk_head_comp.style.width = "70vw";
+        desk_head_comp.style.marginLeft = "12vw";
+    desk_head_comp.style.marginRight = "12vw";
+        desk_head_comp.style.marginTop = "2vw";
+    desk_head_comp.style.boxSizing = "content-box";
     
 //    FONT SIZES
     var desk_ttl_class = document.querySelectorAll('.desk_ttl');
@@ -108,6 +118,7 @@ function toMobile(){
 
 
 }
+
 var desktop_viewer_file_width = "";
 var mobile_viewer_file_width = ""
 
@@ -201,7 +212,7 @@ function objectHeightChanged(object_id){
 
     if(return_value) {
         switch(which){
-            case "H": initial_header_height = parseInt(document.getElementsByClassName("desk_head")[0].style.height);
+            case "H": initial_header_height = parseInt(document.getElementById("desk_head").style.height);
                 break;
             case "M": initial_mob_thumb_height = parseInt(window.getComputedStyle(document.getElementById("desk_mob_pdf_thumb")).height);
                 break;
@@ -216,19 +227,20 @@ var new_margin = 0;
 
 function adjustMargin(){
     //COMPUTED STYLES NOT SET
-    var header_top = parseInt(window.getComputedStyle(document.getElementsByClassName("desk_head")[0]).top);
-    var header_height = parseInt(window.getComputedStyle(document.getElementsByClassName("desk_head")[0]).height);
+    var header_top = parseInt(window.getComputedStyle(document.getElementById("desk_head")).top);
+    var header_margin_top = parseInt(window.getComputedStyle(document.getElementById("desk_head")).marginTop);
+    var header_height = parseInt(window.getComputedStyle(document.getElementById("desk_head")).height);
     var container_top = parseInt(window.getComputedStyle(document.getElementsByClassName("desk_body")[0]).marginTop);
     var description_box_padding_top = parseInt(window.getComputedStyle(document.getElementById("desc_box")).paddingTop);
 
-    var temp_marg = (header_top - container_top + header_height - description_box_padding_top + 10);
+    var temp_marg = ((header_top + header_margin_top - container_top) + header_height - description_box_padding_top + 25);
     if(temp_marg != new_margin) {
         new_margin = temp_marg;
 
         document.getElementById("desc_box").style.marginTop = new_margin + "px"; //ADD TO TOP
 
         var curr_desc_bx_height = parseInt(window.getComputedStyle(document.getElementById("desc_box")).height) + prev_desc_box_removal; //ADD PREV REMOAVL (OUT OF ORIGINAL WHOLE)
-        //            console.log("...DB height:: " + curr_desc_bx_height);
+                    console.log("...DB height:: " + curr_desc_bx_height);
 
         document.getElementById("desc_box").style.height = (curr_desc_bx_height - new_margin) + "px";
         //            console.log("...NEW DB height:: " + document.getElementsByClassName("desc_box")[0].style.height);
@@ -236,10 +248,11 @@ function adjustMargin(){
         //SUBTRACT FROM BOTTOM
 
         //        + "px";
-        //    console.log("header-top: " + header_top);
-        //    console.log("header-height: " + header_height);
-        //    console.log("container-top: " + container_top);
-        //    console.log("desc_box_pad-top: " + description_box_padding_top);
+            console.log("header-top: " + header_top);
+            console.log("header-height: " + header_height);
+        console.log("header-top-margin: " + header_margin_top);
+            console.log("container-top: " + container_top);
+            console.log("desc_box_pad-top: " + description_box_padding_top);
 
         console.log(">> NEW desc text top margin: " + new_margin);
         console.log(">> NEW desc text height: " + (curr_desc_bx_height - new_margin));
@@ -305,14 +318,14 @@ var body = document.documentElement;
 
 //MAKE HEADER OPAQUE
 function makeOpaque(){
-    var header_ref = document.getElementsByClassName("desk_head")[0];
+    var header_ref = document.getElementById("desk_head");
     header_ref.style.transition = "opacity 1s";
     header_ref.style.opacity = "50%";
     console.log(">> OPAQUE header")
 }
 //MAKE HEADER SOLID
 function makeSolid(){
-    var header_ref = document.getElementsByClassName("desk_head")[0];
+    var header_ref = document.getElementById("desk_head");
     //    header_ref.style.transition = "opacity 3s";
     header_ref.style.opacity = "100%";
     console.log(">> NOT OPAQUE header");
