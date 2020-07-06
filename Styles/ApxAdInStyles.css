@@ -61,7 +61,7 @@ body {
     float:left;
     width: 40%;
     box-sizing:border-box;
-    margin: 2% 5% 1% 5%;
+    margin: 5% 5% 5% 5%;
     padding: 0px 15px 0px 15px;
 
 /*
@@ -161,12 +161,13 @@ body {
     text-align: center;
 
     display: none;
-    overflow-y:hidden;
+    overflow-y:scroll;
     overflow-x: hidden;
 }
 .viewer_file{
 /*    width: 800px;*/
     margin: 0 auto;
+    
 
 }
 #pdf_view_src{
@@ -198,9 +199,13 @@ hr{
 
 
 #img_view_src{
-    width: 90vw;
+    height: 90vh;
 }
 #pdf_view_src{
-    width: 90vw;
-    height: 85vh;
+    width: 80vw;
+/*    WEB*/
+        height:20000px; 
+
+/*    MOBILE*/
+/*    height: 4700px;*/
 }

@@ -126,30 +126,31 @@ function toMobile(){
 
 }
 
-var desktop_viewer_file_width = "";
-var mobile_viewer_file_width = ""
+var web_view_height = (mobile)? "4700px": "20000px";
 
 //SHOW FILE IN FILE VIEWER
 function showFile(obj_id) {
     console.log("ID:: " + obj_id);
     console.log("SRC:: " + document.getElementById(obj_id).src);
-
+    var output = "";
     //SET OUTPUT SRC TO IMG
     if(obj_id.indexOf("pdf") < 0) {
-        document.getElementById("img_view_src").src = document.getElementById(obj_id).src;
+        output = document.getElementById("img_view_src");
+        output.src = document.getElementById(obj_id).src;
 
         console.log(">>> IMG");
         console.log("SRC CHNGE:: " + document.getElementById("img_view_src"));
-        document.getElementById("img_view_src").style.display = "inline";
+        output.style.display = "inline";
+        output.style.height = "auto";
     }
     //SET OUTPUT SRC TO PDF
     else {
-        var mob_src = "PDF_Files/ApxMobView.pdf";
+        var mob_src = "IMG_Files/ApxMobView.jpg";
         var desk_src = "";
 
-        var output = document.getElementById("pdf_view_src");
+        output = document.getElementById("pdf_view_src");
         console.log(">>> PDF");
-
+        output.style.display = "inline";
         if(obj_id.indexOf("desk_desk") >= 0){
             output.src = desk_src;
             console.log("SRC CHNGE:: " + output);
@@ -158,9 +159,10 @@ function showFile(obj_id) {
             output.src = mob_src;
             console.log("SRC CHNGE:: " + output.src);
         }
-//        output.style.width = "90vw"
-        output.style.display = "inline";
+        output.style.height = web_view_height;
     }
+    output.style.width = "70vw"; 
+
 
     //SHOW VIEWER
     document.getElementById("viewer_div").style.display = "inline";
