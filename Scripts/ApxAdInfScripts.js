@@ -97,26 +97,26 @@ function toMobile(){
     //    DESKTOP HEADING
     var desk_head_comp = document.getElementById('desk_head');
     
-    var body_width = parseInt(window.innerWidth);//parseInt(window.getComputedStyle(document.body).width) + parseInt(window.getComputedStyle(document.body).marginLeft) + parseInt(window.getComputedStyle(document.body).marginRight);
-//    document.body.width = body_width + "px";
     
     
-    var header_width = parseInt(window.getComputedStyle(desk_head_comp).width);
-    
-    var margin = 0;//(body_width - header_width) / 2;
-    
-    console.log("BODY WIDTH - " + body_width);
-    console.log("HEADER WIDTH - " + header_width);
-    console.log("new marg - " + margin);
+   
     //NOT FIXED NEW POS CENTERED
         desk_head_comp.style.position = "absolute"; 
-    desk_head_comp.style.top = "0px";
-    desk_head_comp.style.left = "0px";
-        desk_head_comp.style.width = "70vw";
-        desk_head_comp.style.marginLeft = "11.5vw";//margin + "px";
+//    desk_head_comp.style.top = "0px";
+    desk_head_comp.style.left = document.getElementsByClassName("desk_body")[0].style.left;
+        var body_width = parseInt(window.getComputedStyle(document.getElementsByClassName("desk_body")[0]).width);
+
+        desk_head_comp.style.width = body_width * .8;
+    
+    var header_width = parseInt(window.getComputedStyle(desk_head_comp).width);
+    var margin = (body_width - header_width) / 2;
+     console.log("BODY WIDTH - " + body_width);
+    console.log("HEADER WIDTH - " + header_width);
+    console.log("new marg - " + margin);
+        desk_head_comp.style.marginLeft = margin + "px";
     desk_head_comp.style.marginRight = margin + "px";
         desk_head_comp.style.marginTop = "2vw";
-    desk_head_comp.style.boxSizing = "content-box";
+//    desk_head_comp.style.boxSizing = "content-box";
     
 //    console.log(">> BEFORE")
 //    console.log("HEADER HEIGHT:: " + window.getComputedStyle(desk_head_comp).height);
