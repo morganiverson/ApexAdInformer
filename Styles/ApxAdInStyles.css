@@ -26,7 +26,7 @@ body {
 
 /*           CONTAINER DIV - SMALLER VERSION OF BODY*/
 .desk_body{
-    background-color:white;
+    background-color: white;
     border: .5px solid darkgrey;
     box-sizing:border-box;
     overflow: hidden;
@@ -42,6 +42,9 @@ body {
     text-justify: inter-character;
     height:60%;
     overflow-y: scroll;
+    
+/*    MOBILE TESTING */
+    
 }
 #desk_dtxt{
     line-height: 17px;
@@ -54,15 +57,17 @@ body {
 .desk_comp{
     display: inline-block;
     float:left;
-
     width: 40%;
     box-sizing:border-box;
-/*    margin: auto 5% auto 5%;*/
     margin: 2% 5% 0 5%;
     padding: 0px 15px 0px 15px;
-/*    min-height: 0px;*/
 
-    /*                overflow:hidden;*/
+/*
+    MOBILE TESTING 
+    display: block;
+    width: 100%;
+    margin: 0px;
+*/
 }
 .desk_button_cont{
     float:left;
@@ -92,6 +97,14 @@ body {
     color: black; //#404040;
     border-radius: 5px;
     box-shadow: -1px 2px 5px #4D4D4D;
+    
+/*
+    MOBILE TESTING 
+    position: absolute;
+    width: 77vw;
+    margin-left: 10.5vw;
+    margin-top: 2vw;
+*/
 }   
 .desk_web_prev{
     /*                background-color: lightpink;*/
