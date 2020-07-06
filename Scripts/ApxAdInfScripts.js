@@ -8,7 +8,7 @@ window.addEventListener("load", function(){
     console.log("?? DEVICE - " + navigator.platform);
 
     if(mobile){
-        //        toMobile(); 
+        toMobile(); 
     }
     else{
 
