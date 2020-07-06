@@ -1,21 +1,16 @@
-var mobile = false;
-
+var mobile = isMobile();
+if(window.readyState = "loading"){
+    if(mobile) toMobile();
+}
 
 //CHECK IF DEVICE IS MOBILE OR DESKTOP
 window.addEventListener("load", function(){
+
     //CHECK VIEWPORT WIDTH
-    mobile = isMobile();
     console.log("?? DEVICE - " + navigator.platform);
     console.log("?? MOBILE - " + mobile);
 
-    if(mobile){
-        toMobile();
-//        ONE TIME 
-//        adjustMargin();
-//        adjustThumbSpanHeight();
-//        setOrgImgMargins();
-    }
-    else{
+    if(!mobile){
 
         //        MAKE HEADER OPAQUE ON SCROLL
         window.addEventListener("scroll", function(){
