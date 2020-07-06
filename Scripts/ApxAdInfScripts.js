@@ -106,8 +106,15 @@ function toMobile(){
         desk_head_comp.style.marginTop = "2vw";
     desk_head_comp.style.boxSizing = "content-box";
     
-    console.log("HEADER HEIGHT:: " + desk_head_comp.style.height);
-    console.log("HEADER FONT SIZE:: " + desk_head_comp.style.fontSize);
+    console.log(">> BEFORE")
+    console.log("HEADER HEIGHT:: " + window.getComputedStyle(desk_head_comp).height);
+    console.log("HEADER FONT SIZE:: " + window.getComputedStyle(desk_head_comp).fontSize);
+    var head_HGT = parseInt(window.getComputedStyle(desk_head_comp).height);
+    desk_head_comp.style.fontSize = (head_HGT * .3) + "px";
+    
+    console.log(">> AFTER")
+    console.log("HEADER HEIGHT:: " + window.getComputedStyle(desk_head_comp).height);
+    console.log("HEADER FONT SIZE:: " + window.getComputedStyle(desk_head_comp).fontSize);
     
 
 //    FONT SIZES
