@@ -126,7 +126,7 @@ function toMobile(){
 
 }
 
-var web_view_height = (mobile)? "4700px": "20000px";
+var web_view_height = (mobile)? "4700px": "210000px";
 
 //SHOW FILE IN FILE VIEWER
 function showFile(obj_id) {

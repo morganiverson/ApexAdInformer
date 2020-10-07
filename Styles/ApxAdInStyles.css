@@ -171,11 +171,7 @@ body {
 
 }
 #pdf_view_src{
-    height:600px;
-    /*
-    margin-left:auto;
-    margin-right:auto;
-    */
+    
     border:none;
 }
 #exit_view{
@@ -199,13 +195,7 @@ hr{
 
 
 #img_view_src{
-    height: 90vh;
 }
 #pdf_view_src{
-    width: 80vw;
-/*    WEB*/
-        height:20000px; 
 
-/*    MOBILE*/
-/*    height: 4700px;*/
 }
