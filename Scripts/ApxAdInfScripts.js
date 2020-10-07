@@ -162,6 +162,7 @@ function showFile(obj_id) {
         output.style.height = web_view_height;
     }
     output.style.width = "70vw"; 
+    output.style.height = "auto";
 
 
     //SHOW VIEWER
@@ -188,8 +189,10 @@ function hideViewer(){
     //CLEAR SOURCES
     document.getElementById("pdf_view_src").style.display = "none";
     document.getElementById("pdf_view_src").style.width = 0;
+    document.getElementById("pdf_view_src").style.height = 0;
     document.getElementById("pdf_view_src").src = "";
     document.getElementById("img_view_src").style.display = "none";
+    document.getElementById("img_view_src").style.height = 0;
     document.getElementById("img_view_src").style.width = 0;
 }
 
